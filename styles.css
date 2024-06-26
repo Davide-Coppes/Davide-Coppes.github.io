@@ -68,3 +68,26 @@ main {
 .course-subsection h3 {
     margin-top: 10px;
 }
+.course-cell {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.course-cell img {
+    width: 100%;
+    height: auto;
+}
+
+.course-cell h4 {
+    margin: 10px 0;
+}
+
+.course-cell:hover {
+    transform: scale(1.05);
+}

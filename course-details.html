@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div id="course-details"></div>
+        </main>
+    </div>
+
+    <script>
+        const courses = {
+            "chatgpt-prompt-engineering": {
+                title: "ChatGPT Prompt Engineering for Developers",
+                image: "images/chatgpt-prompt-engineering.jpg",
+                description: "This course covers advanced techniques for engineering prompts in ChatGPT to maximize efficiency and effectiveness for developers.",
+                link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/"
+            },
+            "ai-agents-langgraph": {
+                title: "AI Agents in LangGraph",
+                image: "images/ai-agents-langgraph.jpg",
+                description: "This course focuses on the development and implementation of AI agents using the LangGraph framework, including practical applications and advanced concepts.",
+                link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/"
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseKey = urlParams.get('course');
+        const course = courses[courseKey];
+
+        if (course) {
+            const courseDetails = document.getElementById('course-details');
+            courseDetails.innerHTML = `
+                <h1>${course.title}</h1>
+                <img src="${course.image}" alt="${course.title}">
+                <p>${course.description}</p>
+                <a href="${course.link}" target="_blank">Go to Course</a>
+            `;
+        } else {
+            document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
+        }
+    </script>
+</body>
+</html>
