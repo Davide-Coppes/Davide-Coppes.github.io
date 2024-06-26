@@ -57,3 +57,14 @@ header a:hover {
 main {
     padding: 20px 0;
 }
+.course-section {
+    margin-bottom: 20px;
+}
+
+.course-subsection {
+    margin-left: 20px;
+}
+
+.course-subsection h3 {
+    margin-top: 10px;
+}
