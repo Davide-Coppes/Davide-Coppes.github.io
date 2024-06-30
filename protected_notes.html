@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Download Notes</h2>
+        <form id="password-form">
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="download-section" class="hidden">
+            <p>Password correct! You can now download the notes.</p>
+            <a id="download-link" href="notes/ChatGPT_Prompt_Engineering_for_Developers.pdf" download>Download Notes</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === 'Zuccata12;:') { // Password check
+                document.getElementById('download-section').classList.remove('hidden');
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

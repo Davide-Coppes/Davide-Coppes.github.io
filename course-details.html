@@ -12,12 +12,7 @@
             <div id="course-details"></div>
             <div id="notes-section" style="display: none;">
                 <h2>Download Notes</h2>
-                <form id="password-form">
-                    <label for="password">Enter Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <button type="submit">Submit</button>
-                </form>
-                <a id="download-link" href="#" style="display: none;" target="_blank">Download Notes</a>
+                <a href="protected_notes.html" target="_blank">Access Protected Notes</a>
             </div>
         </main>
     </div>
@@ -28,7 +23,7 @@
                 title: "ChatGPT Prompt Engineering for Developers",
                 description: "The 'ChatGPT Prompt Engineering for Developers' course is designed to teach developers how to use large language models (LLMs) to quickly build powerful new applications. Using the OpenAI API, students learn best practices for prompt engineering in application development. The course covers various tasks, including summarizing text, inferring (such as sentiment classification and topic extraction), transforming text (like translation and grammar correction), and expanding text (such as automated email writing). Additionally, students will learn to build a custom chatbot. All concepts are illustrated with numerous practical examples that can be used directly in a Jupyter notebook environment to provide hands-on experience with prompt engineering.",
                 link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
-                notes: "notes/ChatGPT_Prompt_Engineering_for_Developers.pdf", // Path to the notes PDF in the notes folder
+                notes: "notes/protected_notes.html",
                 completed: true
             },
             "ai-agents-langgraph": {
@@ -58,17 +53,6 @@
             `;
             if (course.completed && course.notes) {
                 document.getElementById('notes-section').style.display = 'block';
-                const passwordForm = document.getElementById('password-form');
-                passwordForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const password = document.getElementById('password').value;
-                    if (password === 'Zuccata12;:') { // Password check
-                        document.getElementById('download-link').href = course.notes;
-                        document.getElementById('download-link').style.display = 'block';
-                    } else {
-                        alert('Incorrect password. Please try again.');
-                    }
-                });
             }
         } else {
             document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
