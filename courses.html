@@ -28,76 +28,39 @@
             <h1>Courses and Certifications</h1>
             <div id="completed" class="course-section">
                 <h2>Completed</h2>
-                <div id="completed-expert" class="course-subsection">
-                    <h3>Expert</h3>
-                </div>
-                <div id="completed-intermediate" class="course-subsection">
-                    <h3>Intermediate</h3>
-                </div>
-                <div id="completed-beginner" class="course-subsection">
-                    <h3>Beginner</h3>
-                    <div class="course-cell">
-                        <a href="course-details.html?course=chatgpt-prompt-engineering" target="_blank">
-                            <img src="images/chatgpt-prompt-engineering.jpg" alt="ChatGPT Prompt Engineering for Developers">
-                            <div class="course-info">
-                                <h4>ChatGPT Prompt Engineering for Developers</h4>
-                            </div>
-                        </a>
-                    </div>
+                <div class="course-cell">
+                    <a href="course-details.html?course=chatgpt-prompt-engineering" target="_blank">
+                        <div class="course-info">
+                            <h4>ChatGPT Prompt Engineering for Developers</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div id="in-progress" class="course-section">
                 <h2>In Progress</h2>
-                <div id="in-progress-expert" class="course-subsection">
-                    <h3>Expert</h3>
-                </div>
-                <div id="in-progress-intermediate" class="course-subsection">
-                    <h3>Intermediate</h3>
-                    <div class="course-cell">
-                        <a href="course-details.html?course=ai-agents-langgraph" target="_blank">
-                            <img src="images/ai-agents-langgraph.jpg" alt="AI Agents in LangGraph">
-                            <div class="course-info">
-                                <h4>AI Agents in LangGraph</h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div id="in-progress-beginner" class="course-subsection">
-                    <h3>Beginner</h3>
+                <div class="course-cell">
+                    <a href="course-details.html?course=ai-agents-langgraph" target="_blank">
+                        <div class="course-info">
+                            <h4>AI Agents in LangGraph</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div id="to-start" class="course-section">
                 <h2>To Start</h2>
-                <div id="to-start-expert" class="course-subsection">
-                    <h3>Expert</h3>
-                </div>
-                <div id="to-start-intermediate" class="course-subsection">
-                    <h3>Intermediate</h3>
-                </div>
-                <div id="to-start-beginner" class="course-subsection">
-                    <h3>Beginner</h3>
-                </div>
+                <!-- Add course cells here if any -->
             </div>
         </main>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Function to hide empty sections and subsections
+            // Function to hide empty sections
             const sections = document.querySelectorAll(".course-section");
             sections.forEach(section => {
-                let hideSection = true;
-                const subsections = section.querySelectorAll(".course-subsection");
-                subsections.forEach(subsection => {
-                    if (subsection.children.length === 1) {
-                        subsection.style.display = "none";
-                    } else {
-                        hideSection = false;
-                    }
-                });
-                if (hideSection) {
+                if (section.querySelectorAll(".course-cell").length === 0) {
                     section.style.display = "none";
                 }
             });

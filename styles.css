@@ -60,66 +60,34 @@ main {
 .course-section {
     margin-bottom: 20px;
 }
-
-.course-subsection {
-    margin-left: 20px;
-}
-
-.course-subsection h3 {
-    margin-top: 10px;
-}
 .course-cell {
-    display: inline-block;
-    width: 200px;
-    margin: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.2s;
-}
-
-.course-cell img {
+    display: block;
     width: 100%;
-    height: auto;
-}
-
-.course-cell h4 {
     margin: 10px 0;
-}
-
-.course-cell:hover {
-    transform: scale(1.05);
-}
-.course-cell {
-    display: flex;
-    align-items: center;
-    width: 400px;
-    margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    transition: transform 0.2s;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.course-cell img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    margin-right: 20px;
+    text-decoration: none;
+    transition: transform 0.2s;
 }
 
 .course-cell .course-info {
-    flex-grow: 1;
+    margin: 0;
 }
 
 .course-cell h4 {
     margin: 0;
     font-size: 1.2em;
+    color: #333;
 }
 
 .course-cell:hover {
     transform: scale(1.05);
+}
+
+.course-cell a {
+    text-decoration: none;
+    color: inherit;
 }
