@@ -10,6 +10,15 @@
     <div class="container">
         <main>
             <div id="course-details"></div>
+            <div id="notes-section" style="display: none;">
+                <h2>Download Notes</h2>
+                <form id="password-form">
+                    <label for="password">Enter Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Submit</button>
+                </form>
+                <a id="download-link" href="#" style="display: none;" target="_blank">Download Notes</a>
+            </div>
         </main>
     </div>
 
@@ -18,17 +27,21 @@
             "chatgpt-prompt-engineering": {
                 title: "ChatGPT Prompt Engineering for Developers",
                 description: "This course covers advanced techniques for engineering prompts in ChatGPT to maximize efficiency and effectiveness for developers.",
-                link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/"
+                link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+                notes: "notes/ChatGPT_Prompt_Engineering_for_Developers.pdf", // Path to the notes PDF in the notes folder
+                completed: true
             },
             "ai-agents-langgraph": {
                 title: "AI Agents in LangGraph",
                 description: "This course focuses on the development and implementation of AI agents using the LangGraph framework, including practical applications and advanced concepts.",
-                link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/"
+                link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
+                completed: false
             },
             "azure-data-scientist-associate": {
                 title: "Azure Data Scientist Associate",
                 description: "This certification validates expertise in applying data science and machine learning to implement and run machine learning workloads on Azure.",
-                link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification"
+                link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification",
+                completed: false
             }
         };
 
@@ -43,6 +56,20 @@
                 <p>${course.description}</p>
                 <a href="${course.link}" target="_blank">Go to Course</a>
             `;
+            if (course.completed && course.notes) {
+                document.getElementById('notes-section').style.display = 'block';
+                const passwordForm = document.getElementById('password-form');
+                passwordForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const password = document.getElementById('password').value;
+                    if (password === 'Zuccata12;:') { // Password check
+                        document.getElementById('download-link').href = course.notes;
+                        document.getElementById('download-link').style.display = 'block';
+                    } else {
+                        alert('Incorrect password. Please try again.');
+                    }
+                });
+            }
         } else {
             document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
         }
