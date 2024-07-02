@@ -5,43 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 5px;
-            background-color: #e8491d;
-            color: white;
-            border-radius: 20px;
-        }
-        #notes-section {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Davide</span> Coppes</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
     <div class="container">
         <main>
             <div id="course-details"></div>
             <div id="notes-section" style="display: none;">
                 <h2>Download Notes</h2>
-                <a href="#" id="notes-link" target="_blank">Access Course Notes</a>
+                <form id="notes-form" action="protected_notes.html" method="get">
+                    <input type="hidden" id="notes-url" name="notes-url" value="">
+                    <button type="submit">Enter to View Notes</button>
+                </form>
             </div>
         </main>
     </div>
@@ -278,7 +252,7 @@
             if (course) {
                 const courseDetails = document.getElementById('course-details');
                 let tagsHtml = course.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-                
+
                 courseDetails.innerHTML = `
                     <h1>${course.title}</h1>
                     <p>${course.description}</p>
@@ -289,7 +263,7 @@
 
                 if (course.completed && course.notes) {
                     document.getElementById('notes-section').style.display = 'block';
-                    document.getElementById('notes-link').href = course.notes;
+                    document.getElementById('notes-url').value = course.notes;
                 }
             } else {
                 document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';

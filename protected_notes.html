@@ -94,31 +94,46 @@
             <button type="submit">Submit</button>
         </form>
         <div id="download-section" class="hidden">
-            <a id="download-link" href="notes/ChatGPT_Prompt_Engineering_for_Developers.pdf" download>Download Notes</a>
+            <a id="download-link" href="#" download>Download Notes</a>
         </div>
+        <button id="back-button">Back to Course</button>
     </div>
 
     <script>
-        document.querySelector('.toggle-password').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const passwordType = passwordInput.getAttribute('type');
-            if (passwordType === 'password') {
-                passwordInput.setAttribute('type', 'text');
-                this.textContent = 'Hide';
-            } else {
-                passwordInput.setAttribute('type', 'password');
-                this.textContent = 'Show';
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const notesUrl = urlParams.get('notes-url');
+            const downloadLink = document.getElementById('download-link');
+            if (notesUrl) {
+                downloadLink.href = notesUrl;
             }
-        });
 
-        document.getElementById('password-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const password = document.getElementById('password').value;
-            if (password === 'Zuccata12;:') { // Password check
-                document.getElementById('download-section').classList.remove('hidden');
-            } else {
-                alert('Incorrect password. Please try again.');
-            }
+            document.querySelector('.toggle-password').addEventListener('click', function() {
+                const passwordInput = document.getElementById('password');
+                const passwordType = passwordInput.getAttribute('type');
+                if (passwordType === 'password') {
+                    passwordInput.setAttribute('type', 'text');
+                    this.textContent = 'Hide';
+                } else {
+                    passwordInput.setAttribute('type', 'password');
+                    this.textContent = 'Show';
+                }
+            });
+
+            document.getElementById('password-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const password = document.getElementById('password').value;
+                if (password === 'Zuccata12;:') { // Password check
+                    document.getElementById('download-section').classList.remove('hidden');
+                    document.getElementById('password-form').style.display = 'none';
+                } else {
+                    alert('Incorrect password. Please try again.');
+                }
+            });
+
+            document.getElementById('back-button').addEventListener('click', function() {
+                window.history.back();
+            });
         });
     </script>
 </body>
