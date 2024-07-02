@@ -5,226 +5,296 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #e8491d;
+            color: white;
+            border-radius: 20px;
+        }
+        #notes-section {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Davide</span> Coppes</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <main>
             <div id="course-details"></div>
             <div id="notes-section" style="display: none;">
                 <h2>Download Notes</h2>
-                <a href="protected_notes.html" target="_blank">Access Protected Notes</a>
+                <a href="#" id="notes-link" target="_blank">Access Course Notes</a>
             </div>
         </main>
     </div>
 
     <script>
         const courses = {
-			"chatgpt-prompt-engineering": {
-				title: "ChatGPT Prompt Engineering for Developers",
-				description: "The 'ChatGPT Prompt Engineering for Developers' course is designed to teach developers how to use large language models (LLMs) to quickly build powerful new applications. Using the OpenAI API, students learn best practices for prompt engineering in application development. The course covers various tasks, including summarizing text, inferring (such as sentiment classification and topic extraction), transforming text (like translation and grammar correction), and expanding text (such as automated email writing). Additionally, students will learn to build a custom chatbot. All concepts are illustrated with numerous practical examples that can be used directly in a Jupyter notebook environment to provide hands-on experience with prompt engineering.",
-				link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
-				notes: "notes/ChatGPT_Prompt_Engineering_for_Developers.pdf",
-				completed: true
-			},
-			"ai-agents-langgraph": {
-				title: "AI Agents in LangGraph",
-				description: "The 'AI Agents in LangGraph' course focuses on developing and implementing AI agents using the LangGraph framework. Students learn how to create AI agents that can autonomously navigate and analyze data, performing tasks such as generating automated responses, extracting information, and managing complex conversations. The course covers advanced AI concepts and practical applications, providing a deep understanding of how to use LangGraph to create innovative and efficient AI solutions.",
-				link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
-				completed: false
-			},
-			"azure-data-scientist-associate": {
-				title: "Azure Data Scientist Associate",
-				description: "The 'Azure Data Scientist Associate' certification course validates expertise in applying data science and machine learning to implement and manage machine learning workloads on Azure. Students learn to use Azure Machine Learning services to prepare data, train models, manage machine learning resources, and deploy scalable solutions. The course includes practical exercises on using Azure tools for data analysis, building predictive models, and optimizing model performance. This certification is ideal for those looking to demonstrate their data science skills using Azure technologies.",
-				link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification",
-				completed: false
-			},
-			"advanced-retrieval-for-ai": {
-				title: "Advanced Retrieval for AI with Chroma",
-				description: "The 'Advanced Retrieval for AI with Chroma' course teaches advanced techniques for information retrieval using the Chroma library. Students will learn to build efficient retrieval systems that can handle large-scale data and deliver accurate results for AI applications.",
-				link: "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/",
-				completed: false
-			},
-			"automated-testing-llmops": {
-				title: "Automated Testing for LLMOps",
-				description: "The 'Automated Testing for LLMOps' course covers essential techniques and tools for implementing automated testing in large language model operations (LLMOps). Students will learn best practices for ensuring the reliability, performance, and accuracy of LLM-based systems through rigorous testing protocols.",
-				link: "https://www.deeplearning.ai/short-courses/automated-testing-llmops/",
-				completed: false
-			},
-			"build-llm-apps-with-langchain-js": {
-				title: "Build LLM Apps with LangChain.js",
-				description: "The 'Build LLM Apps with LangChain.js' course focuses on using the LangChain.js framework to develop applications powered by large language models. Students will learn how to create interactive and dynamic AI applications, integrating LLMs with various web technologies.",
-				link: "https://www.deeplearning.ai/short-courses/build-llm-apps-with-langchain-js/",
-				completed: false
-			},
-			"building-agentic-rag-with-llamaindex": {
-				title: "Building Agentic RAG with LlamaIndex",
-				description: "The 'Building Agentic RAG with LlamaIndex' course teaches students how to construct agentic retrieval-augmented generation (RAG) systems using the LlamaIndex framework. Students will explore how to create autonomous agents that efficiently retrieve and generate information, integrating machine learning and natural language processing techniques.",
-				link: "https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/",
-				completed: false
-			},
-			"building-evaluating-advanced-rag": {
-				title: "Building and Evaluating Advanced RAG Applications",
-				description: "The 'Building and Evaluating Advanced RAG Applications' course provides a comprehensive guide to constructing and assessing retrieval-augmented generation (RAG) systems. Students will learn advanced techniques for integrating retrieval with generative models to create powerful AI applications.",
-				link: "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/",
-				completed: false
-			},
-			"building-generative-ai-applications-with-gradio": {
-				title: "Building Generative AI Applications with Gradio",
-				description: "The 'Building Generative AI Applications with Gradio' course introduces the Gradio platform for creating interactive generative AI applications. Students will learn how to build and deploy user-friendly AI tools that can generate content and perform various tasks in real-time.",
-				link: "https://www.deeplearning.ai/short-courses/building-generative-ai-applications-with-gradio/",
-				completed: false
-			},
-			"building-multimodal-search-and-rag": {
-				title: "Building Multimodal Search and RAG",
-				description: "The 'Building Multimodal Search and RAG' course explores the construction of advanced multimodal search systems and retrieval-augmented generation (RAG) systems. Students will learn to combine text, images, and other data to create sophisticated search engines and RAG systems that improve the quality and relevance of generated responses.",
-				link: "https://www.deeplearning.ai/short-courses/building-multimodal-search-and-rag/",
-				completed: false
-			},
-			"building-systems-with-chatgpt": {
-				title: "Building Systems with the ChatGPT API",
-				description: "The 'Building Systems with the ChatGPT API' course teaches students how to leverage the ChatGPT API to develop sophisticated AI systems. This course covers practical implementation strategies, integration techniques, and best practices for building robust systems that utilize the ChatGPT API.",
-				link: "https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/",
-				completed: false
-			},
-			"develop-nlp-solutions-with-azure-ai": {
-				title: "Develop Natural Language Processing Solutions with Azure AI Services",
-				description: "The 'Develop Natural Language Processing Solutions with Azure AI Services' course provides the skills needed to build natural language processing (NLP) solutions using Azure AI services. Students will learn to create applications that understand and respond to human language, integrating features such as sentiment analysis, entity recognition, and automatic translation.",
-				link: "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure-ai/",
-				completed: false
-			},
-			"efficiently-serving-llms": {
-				title: "Efficiently Serving LLMs",
-				description: "The 'Efficiently Serving LLMs' course teaches students how to deploy and serve large language models (LLMs) efficiently. This course covers best practices for optimizing LLM inference, reducing latency, and managing computational resources to deliver high-performance AI services.",
-				link: "https://www.deeplearning.ai/short-courses/efficiently-serving-llms/",
-				completed: false
-			},
-			"finetuning-large-language-models": {
-				title: "Finetuning Large Language Models",
-				description: "The 'Finetuning Large Language Models' course covers advanced techniques for fine-tuning large language models to specific tasks and domains. Students will learn how to adapt pre-trained models to enhance their performance and relevance for targeted applications.",
-				link: "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/",
-				completed: false
-			},
-			"function-calling-data-extraction-llms": {
-				title: "Function-Calling and Data Extraction with LLMs",
-				description: "The 'Function-Calling and Data Extraction with LLMs' course teaches how to use large language models (LLMs) for function calling and data extraction. Students will explore advanced techniques to integrate LLMs into practical applications, enhancing automation and efficiency in extracting information from large datasets.",
-				link: "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/",
-				completed: false
-			},
-			"functions-tools-agents-langchain": {
-				title: "Functions, Tools and Agents with LangChain",
-				description: "The 'Functions, Tools and Agents with LangChain' course focuses on leveraging the LangChain framework to develop sophisticated AI functionalities. Students will explore the integration of various tools and agents to enhance the capabilities of AI applications.",
-				link: "https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/",
-				completed: false
-			},
-			"generative-ai-with-llms": {
-				title: "Generative AI with Large Language Models",
-				description: "The 'Generative AI with Large Language Models' course provides a comprehensive guide to using large language models for generative AI tasks. Students will explore methods for training, fine-tuning, and deploying LLMs to create applications capable of generating high-quality text, images, and other content.",
-				link: "https://www.deeplearning.ai/courses/generative-ai-with-llms/",
-				completed: false
-			},
-			"how-diffusion-models-work": {
-				title: "How Diffusion Models Work",
-				description: "The 'How Diffusion Models Work' course provides an in-depth understanding of diffusion models, which are used in various AI applications for generating data. Students will learn the principles behind these models and how to implement them for tasks such as image generation and data synthesis.",
-				link: "https://www.deeplearning.ai/short-courses/how-diffusion-models-work/",
-				completed: false
-			},
-			"introduction-to-on-device-ai": {
-				title: "Introduction to On-Device AI",
-				description: "The 'Introduction to On-Device AI' course introduces students to implementing AI models directly on devices such as smartphones and IoT devices. Students will learn how to optimize models for efficient use of limited resources available on these devices.",
-				link: "https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/",
-				completed: false
-			},
-			"knowledge-graphs-for-rag": {
-				title: "Knowledge Graphs for RAG",
-				description: "The 'Knowledge Graphs for RAG' course explores the integration of knowledge graphs with retrieval-augmented generation (RAG) systems. Students will learn how to build and utilize knowledge graphs to enhance the accuracy and relevance of information retrieved by RAG models.",
-				link: "https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/",
-				completed: false
-			},
-			"langchain-chat-with-your-data": {
-				title: "LangChain: Chat with Your Data",
-				description: "The 'LangChain: Chat with Your Data' course teaches students how to use the LangChain framework to create interactive chat applications that can interact with and process data. This course covers techniques for building chatbots that can access, retrieve, and interpret data in real-time.",
-				link: "https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/",
-				completed: false
-			},
-			"langchain-for-llm-application-development": {
-				title: "LangChain for LLM Application Development",
-				description: "The 'LangChain for LLM Application Development' course focuses on using the LangChain framework to develop applications powered by large language models. Students will learn best practices for integrating LLMs into applications, enhancing functionality, and improving user interaction.",
-				link: "https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/",
-				completed: false
-			},
-			"large-language-models-semantic-search": {
-				title: "Large Language Models with Semantic Search",
-				description: "The 'Large Language Models with Semantic Search' course teaches students how to implement semantic search using large language models. This course covers methods to improve search relevance and accuracy by leveraging the deep understanding of language provided by LLMs.",
-				link: "https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/",
-				completed: false
-			},
-			"llmops": {
-				title: "LLMOps",
-				description: "The 'LLMOps' course introduces students to the operational aspects of managing large language models (LLMs). Topics include deployment, monitoring, and scaling of LLMs, with a focus on maintaining high availability and performance in production environments.",
-				link: "https://www.deeplearning.ai/short-courses/llmops/",
-				completed: false
-			},
-			"open-source-models-hugging-face": {
-				title: "Open Source Models with Hugging Face",
-				description: "The 'Open Source Models with Hugging Face' course provides an in-depth exploration of open-source models available on the Hugging Face platform. Students will learn how to utilize these models for various natural language processing tasks, customize them for specific applications, and integrate them into their own projects.",
-				link: "https://www.deeplearning.ai/short-courses/open-source-models-hugging-face/",
-				completed: false
-			},
-			"preprocessing-unstructured-data-for-llm-applications": {
-				title: "Preprocessing Unstructured Data for LLM Applications",
-				description: "The 'Preprocessing Unstructured Data for LLM Applications' course covers the essential techniques for preparing unstructured data for large language model (LLM) applications. Students will learn methods to clean, organize, and preprocess data to enhance the performance and accuracy of LLM-based systems.",
-				link: "https://www.deeplearning.ai/short-courses/preprocessing-unstructured-data-for-llm-applications/",
-				completed: false
-			},
+            "chatgpt-prompt-engineering": {
+                title: "ChatGPT Prompt Engineering for Developers",
+                description: "The 'ChatGPT Prompt Engineering for Developers' course is designed to teach developers how to use large language models (LLMs) to quickly build powerful new applications.",
+                link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+                notes: "notes/ChatGPT_Prompt_Engineering_for_Developers.pdf",
+                completed: true,
+                tags: ["LLM", "ChatGPT", "Prompt Engineering"]
+            },
+            "ai-agents-langgraph": {
+                title: "AI Agents in LangGraph",
+                description: "The 'AI Agents in LangGraph' course focuses on developing and implementing AI agents using the LangGraph framework.",
+                link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
+                completed: false,
+                inProgress: true,
+                tags: ["AI", "LangGraph", "Agents"]
+            },
+            "azure-data-scientist-associate": {
+                title: "Azure Data Scientist Associate",
+                description: "The 'Azure Data Scientist Associate' certification course validates expertise in applying data science and machine learning to implement and manage machine learning workloads on Azure.",
+                link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification",
+                completed: false,
+                inProgress: true,
+                tags: ["Azure", "Data Science", "Machine Learning"]
+            },
+            "advanced-retrieval-for-ai": {
+                title: "Advanced Retrieval for AI with Chroma",
+                description: "The 'Advanced Retrieval for AI with Chroma' course teaches advanced techniques for information retrieval using the Chroma library.",
+                link: "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/",
+                completed: false,
+                tags: ["AI", "Information Retrieval", "Chroma"]
+            },
+            "automated-testing-llmops": {
+                title: "Automated Testing for LLMOps",
+                description: "The 'Automated Testing for LLMOps' course covers essential techniques and tools for implementing automated testing in large language model operations (LLMOps).",
+                link: "https://www.deeplearning.ai/short-courses/automated-testing-llmops/",
+                completed: false,
+                tags: ["LLM", "Testing", "DevOps"]
+            },
+            "build-llm-apps-with-langchain-js": {
+                title: "Build LLM Apps with LangChain.js",
+                description: "The 'Build LLM Apps with LangChain.js' course focuses on using the LangChain.js framework to develop applications powered by large language models.",
+                link: "https://www.deeplearning.ai/short-courses/build-llm-apps-with-langchain-js/",
+                completed: false,
+                tags: ["LLM", "LangChain", "JavaScript"]
+            },
+            "building-agentic-rag-with-llamaindex": {
+                title: "Building Agentic RAG with LlamaIndex",
+                description: "The 'Building Agentic RAG with LlamaIndex' course teaches students how to construct agentic retrieval-augmented generation (RAG) systems using the LlamaIndex framework.",
+                link: "https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/",
+                completed: false,
+                tags: ["RAG", "LlamaIndex", "AI"]
+            },
+            "building-evaluating-advanced-rag": {
+                title: "Building and Evaluating Advanced RAG Applications",
+                description: "The 'Building and Evaluating Advanced RAG Applications' course provides a comprehensive guide to constructing and assessing retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/",
+                completed: false,
+                tags: ["RAG", "AI", "Evaluation"]
+            },
+            "building-generative-ai-applications-with-gradio": {
+                title: "Building Generative AI Applications with Gradio",
+                description: "The 'Building Generative AI Applications with Gradio' course introduces the Gradio platform for creating interactive generative AI applications.",
+                link: "https://www.deeplearning.ai/short-courses/building-generative-ai-applications-with-gradio/",
+                completed: false,
+                tags: ["Generative AI", "Gradio", "Application Development"]
+            },
+            "building-multimodal-search-and-rag": {
+                title: "Building Multimodal Search and RAG",
+                description: "The 'Building Multimodal Search and RAG' course explores the construction of advanced multimodal search systems and retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-multimodal-search-and-rag/",
+                completed: false,
+                tags: ["Multimodal", "Search", "RAG"]
+            },
+            "building-systems-with-chatgpt": {
+                title: "Building Systems with the ChatGPT API",
+                description: "The 'Building Systems with the ChatGPT API' course teaches students how to leverage the ChatGPT API to develop sophisticated AI systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/",
+                completed: false,
+                tags: ["ChatGPT", "API", "System Development"]
+            },
+            "develop-nlp-solutions-with-azure-ai": {
+                title: "Develop Natural Language Processing Solutions with Azure AI Services",
+                description: "The 'Develop Natural Language Processing Solutions with Azure AI Services' course provides the skills needed to build natural language processing (NLP) solutions using Azure AI services.",
+                link: "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure-ai/",
+                completed: false,
+                tags: ["NLP", "Azure", "AI"]
+            },
+            "efficiently-serving-llms": {
+                title: "Efficiently Serving LLMs",
+                description: "The 'Efficiently Serving LLMs' course teaches students how to deploy and serve large language models (LLMs) efficiently.",
+                link: "https://www.deeplearning.ai/short-courses/efficiently-serving-llms/",
+                completed: false,
+                tags: ["LLM", "Deployment", "Efficiency"]
+            },
+            "finetuning-large-language-models": {
+                title: "Finetuning Large Language Models",
+                description: "The 'Finetuning Large Language Models' course covers advanced techniques for fine-tuning large language models to specific tasks and domains.",
+                link: "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/",
+                completed: false,
+                tags: ["LLM", "Fine-tuning", "Model Optimization"]
+            },
+            "function-calling-data-extraction-llms": {
+                title: "Function-Calling and Data Extraction with LLMs",
+                description: "The 'Function-Calling and Data Extraction with LLMs' course teaches how to use large language models (LLMs) for function calling and data extraction.",
+                link: "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/",
+                completed: false,
+                tags: ["LLM", "Function Calling", "Data Extraction"]
+            },
+            "functions-tools-agents-langchain": {
+                title: "Functions, Tools and Agents with LangChain",
+                description: "The 'Functions, Tools and Agents with LangChain' course focuses on leveraging the LangChain framework to develop sophisticated AI functionalities.",
+                link: "https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/",
+                completed: false,
+                tags: ["LangChain", "AI", "Agents"]
+            },
+            "generative-ai-with-llms": {
+                title: "Generative AI with Large Language Models",
+                description: "The 'Generative AI with Large Language Models' course provides a comprehensive guide to using large language models for generative AI tasks.",
+                link: "https://www.deeplearning.ai/courses/generative-ai-with-llms/",
+                completed: false,
+                tags: ["Generative AI", "LLM", "AI Applications"]
+            },
+            "how-diffusion-models-work": {
+                title: "How Diffusion Models Work",
+                description: "The 'How Diffusion Models Work' course provides an in-depth understanding of diffusion models, which are used in various AI applications for generating data.",
+                link: "https://www.deeplearning.ai/short-courses/how-diffusion-models-work/",
+                completed: false,
+                tags: ["Diffusion Models", "AI", "Data Generation"]
+            },
+            "introduction-to-on-device-ai": {
+                title: "Introduction to On-Device AI",
+                description: "The 'Introduction to On-Device AI' course introduces students to implementing AI models directly on devices such as smartphones and IoT devices.",
+                link: "https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/",
+                completed: false,
+                tags: ["On-Device AI", "IoT", "Mobile AI"]
+            },
+            "knowledge-graphs-for-rag": {
+                title: "Knowledge Graphs for RAG",
+                description: "The 'Knowledge Graphs for RAG' course explores the integration of knowledge graphs with retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/",
+                completed: false,
+                tags: ["Knowledge Graphs", "RAG", "AI"]
+            },
+            "langchain-chat-with-your-data": {
+                title: "LangChain: Chat with Your Data",
+                description: "The 'LangChain: Chat with Your Data' course teaches students how to use the LangChain framework to create interactive chat applications that can interact with and process data.",
+                link: "https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/",
+                completed: false,
+                tags: ["LangChain", "Chatbots", "Data Processing"]
+            },
+            "langchain-for-llm-application-development": {
+                title: "LangChain for LLM Application Development",
+                description: "The 'LangChain for LLM Application Development' course focuses on using the LangChain framework to develop applications powered by large language models.",
+                link: "https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/",
+                completed: false,
+                tags: ["LangChain", "LLM", "Application Development"]
+            },
+            "large-language-models-semantic-search": {
+                title: "Large Language Models with Semantic Search",
+                description: "The 'Large Language Models with Semantic Search' course teaches students how to implement semantic search using large language models.",
+                link: "https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/",
+                completed: false,
+                tags: ["LLM", "Semantic Search", "Information Retrieval"]
+            },
+            "llmops": {
+                title: "LLMOps",
+                description: "The 'LLMOps' course introduces students to the operational aspects of managing large language models (LLMs).",
+                link: "https://www.deeplearning.ai/short-courses/llmops/",
+                completed: false,
+                tags: ["LLM", "DevOps", "AI Operations"]
+            },
+            "open-source-models-hugging-face": {
+                title: "Open Source Models with Hugging Face",
+                description: "The 'Open Source Models with Hugging Face' course provides an in-depth exploration of open-source models available on the Hugging Face platform.",
+                link: "https://www.deeplearning.ai/short-courses/open-source-models-hugging-face/",
+                completed: false,
+                tags: ["Open Source", "Hugging Face", "NLP"]
+            },
+            "preprocessing-unstructured-data-for-llm-applications": {
+                title: "Preprocessing Unstructured Data for LLM Applications",
+                description: "The 'Preprocessing Unstructured Data for LLM Applications' course covers the essential techniques for preparing unstructured data for large language model (LLM) applications.",
+                link: "https://www.deeplearning.ai/short-courses/preprocessing-unstructured-data-for-llm-applications/",
+                completed: false,
+                tags: ["Data Preprocessing", "LLM", "Unstructured Data"]
+            },
 			"prompt-engineering-for-vision-models": {
-				title: "Prompt Engineering for Vision Models",
-				description: "The 'Prompt Engineering for Vision Models' course teaches students how to design effective prompts for vision-based AI models. This course covers techniques to improve the performance and accuracy of vision models through carefully crafted prompts, making AI applications more robust and reliable.",
-				link: "https://www.deeplearning.ai/short-courses/prompt-engineering-for-vision-models/",
-				completed: false
-			},
-			"quantization-fundamentals-with-hugging-face": {
-				title: "Quantization Fundamentals with Hugging Face",
-				description: "The 'Quantization Fundamentals with Hugging Face' course introduces the basics of quantization and its application using the Hugging Face library. Students will learn how to apply quantization techniques to reduce the computational footprint of NLP models while preserving their performance.",
-				link: "https://www.deeplearning.ai/short-courses/quantization-fundamentals-with-hugging-face/",
-				completed: false
-			},
-			"quantization-in-depth": {
-				title: "Quantization in Depth",
-				description: "The 'Quantization in Depth' course provides an in-depth understanding of quantization techniques used to optimize deep learning models. Students will learn various methods to reduce model size and increase inference speed while maintaining accuracy, essential for deploying models in resource-constrained environments.",
-				link: "https://www.deeplearning.ai/short-courses/quantization-in-depth/",
-				completed: false
-			},
-			"reinforcement-learning-from-human-feedback": {
-				title: "Reinforcement Learning from Human Feedback",
-				description: "The 'Reinforcement Learning from Human Feedback' course covers techniques for training AI models using reinforcement learning guided by human feedback. Students will explore methods to improve model performance and align AI behavior with human preferences through iterative feedback processes.",
-				link: "https://www.deeplearning.ai/short-courses/reinforcement-learning-from-human-feedback/",
-				completed: false
-			},
-			"understanding-applying-text-embeddings": {
-				title: "Understanding and Applying Text Embeddings",
-				description: "The 'Understanding and Applying Text Embeddings' course delves into the principles and practical applications of text embeddings. Students will learn how to generate and utilize embeddings for various NLP tasks, improving the performance and accuracy of AI models.",
-				link: "https://www.deeplearning.ai/short-courses/google-cloud-vertex-ai/",
-				completed: false
-			}
-		};
-		
-		const urlParams = new URLSearchParams(window.location.search);
-		const courseKey = urlParams.get('course');
-		const course = courses[courseKey];
+                title: "Prompt Engineering for Vision Models",
+                description: "The 'Prompt Engineering for Vision Models' course teaches students how to design effective prompts for vision-based AI models.",
+                link: "https://www.deeplearning.ai/short-courses/prompt-engineering-for-vision-models/",
+                completed: false,
+                tags: ["Prompt Engineering", "Vision Models", "AI"]
+            },
+            "quantization-fundamentals-with-hugging-face": {
+                title: "Quantization Fundamentals with Hugging Face",
+                description: "The 'Quantization Fundamentals with Hugging Face' course introduces the basics of quantization and its application using the Hugging Face library.",
+                link: "https://www.deeplearning.ai/short-courses/quantization-fundamentals-with-hugging-face/",
+                completed: false,
+                tags: ["Quantization", "Hugging Face", "Model Optimization"]
+            },
+            "quantization-in-depth": {
+                title: "Quantization in Depth",
+                description: "The 'Quantization in Depth' course provides an in-depth understanding of quantization techniques used to optimize deep learning models.",
+                link: "https://www.deeplearning.ai/short-courses/quantization-in-depth/",
+                completed: false,
+                tags: ["Quantization", "Deep Learning", "Model Optimization"]
+            },
+            "reinforcement-learning-from-human-feedback": {
+                title: "Reinforcement Learning from Human Feedback",
+                description: "The 'Reinforcement Learning from Human Feedback' course covers techniques for training AI models using reinforcement learning guided by human feedback.",
+                link: "https://www.deeplearning.ai/short-courses/reinforcement-learning-from-human-feedback/",
+                completed: false,
+                tags: ["Reinforcement Learning", "Human Feedback", "AI Training"]
+            },
+            "understanding-applying-text-embeddings": {
+                title: "Understanding and Applying Text Embeddings",
+                description: "The 'Understanding and Applying Text Embeddings' course delves into the principles and practical applications of text embeddings.",
+                link: "https://www.deeplearning.ai/short-courses/google-cloud-vertex-ai/",
+                completed: false,
+                tags: ["Text Embeddings", "NLP", "AI Applications"]
+            }
+        };
 
-		if (course) {
-			const courseDetails = document.getElementById('course-details');
-			courseDetails.innerHTML = `
-				<h1>${course.title}</h1>
-				<p>${course.description}</p>
-				<a href="${course.link}" target="_blank">Go to Course</a>
-			`;
-			if (course.completed && course.notes) {
-				document.getElementById('notes-section').style.display = 'block';
-			}
-		} else {
-			document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
-		}
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseKey = urlParams.get('course');
+            const course = courses[courseKey];
+
+            if (course) {
+                const courseDetails = document.getElementById('course-details');
+                let tagsHtml = course.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                
+                courseDetails.innerHTML = `
+                    <h1>${course.title}</h1>
+                    <p>${course.description}</p>
+                    <p><strong>Status:</strong> ${course.completed ? 'Completed' : course.inProgress ? 'In Progress' : 'To Start'}</p>
+                    <p><strong>Tags:</strong> ${tagsHtml}</p>
+                    <a href="${course.link}" target="_blank">Go to Course</a>
+                `;
+
+                if (course.completed && course.notes) {
+                    document.getElementById('notes-section').style.display = 'block';
+                    document.getElementById('notes-link').href = course.notes;
+                }
+            } else {
+                document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
+            }
+        });
     </script>
 </body>
 </html>

@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Davide Coppes - Courses</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #search-container {
+            margin-bottom: 20px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #tag-container {
+            margin-bottom: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #e8491d;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tag:hover {
+            background-color: #d13d0f;
+        }
+        .tag.active {
+            background-color: #333;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,246 +57,332 @@
     <div class="container">
         <main>
             <h1>Courses and Certifications</h1>
+            
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search courses...">
+            </div>
+            
+            <div id="tag-container">
+                <!-- Tags will be dynamically added here -->
+            </div>
+
             <div id="completed" class="course-section">
                 <h2>Completed</h2>
-                <div class="course-cell">
-                    <a href="course-details.html?course=chatgpt-prompt-engineering" target="_blank">
-                        <div class="course-info">
-                            <h4>ChatGPT Prompt Engineering for Developers</h4>
-                        </div>
-                    </a>
-                </div>
+                <!-- Course cells will be dynamically added here -->
             </div>
 
             <div id="in-progress" class="course-section">
                 <h2>In Progress</h2>
-                <div class="course-cell">
-                    <a href="course-details.html?course=ai-agents-langgraph" target="_blank">
-                        <div class="course-info">
-                            <h4>AI Agents in LangGraph</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="course-cell">
-                    <a href="course-details.html?course=azure-data-scientist-associate" target="_blank">
-                        <div class="course-info">
-                            <h4>Azure Data Scientist Associate</h4>
-                        </div>
-                    </a>
-                </div>
+                <!-- Course cells will be dynamically added here -->
             </div>
 
             <div id="to-start" class="course-section">
-				<h2>To Start</h2>
-				<div class="course-cell">
-					<a href="course-details.html?course=advanced-retrieval-for-ai" target="_blank">
-						<div class="course-info">
-							<h4>Advanced Retrieval for AI with Chroma</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=automated-testing-llmops" target="_blank">
-						<div class="course-info">
-							<h4>Automated Testing for LLMOps</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=build-llm-apps-with-langchain-js" target="_blank">
-						<div class="course-info">
-							<h4>Build LLM Apps with LangChain.js</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=building-agentic-rag-with-llamaindex" target="_blank">
-						<div class="course-info">
-							<h4>Building Agentic RAG with LlamaIndex</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=building-evaluating-advanced-rag" target="_blank">
-						<div class="course-info">
-							<h4>Building and Evaluating Advanced RAG Applications</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=building-generative-ai-applications-with-gradio" target="_blank">
-						<div class="course-info">
-							<h4>Building Generative AI Applications with Gradio</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=building-multimodal-search-and-rag" target="_blank">
-						<div class="course-info">
-							<h4>Building Multimodal Search and RAG</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=building-systems-with-chatgpt" target="_blank">
-						<div class="course-info">
-							<h4>Building Systems with the ChatGPT API</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=develop-nlp-solutions-with-azure-ai" target="_blank">
-						<div class="course-info">
-							<h4>Develop Natural Language Processing Solutions with Azure AI Services</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=efficiently-serving-llms" target="_blank">
-						<div class="course-info">
-							<h4>Efficiently Serving LLMs</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=finetuning-large-language-models" target="_blank">
-						<div class="course-info">
-							<h4>Finetuning Large Language Models</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=function-calling-data-extraction-llms" target="_blank">
-						<div class="course-info">
-							<h4>Function-Calling and Data Extraction with LLMs</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=functions-tools-agents-langchain" target="_blank">
-						<div class="course-info">
-							<h4>Functions, Tools and Agents with LangChain</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=generative-ai-with-llms" target="_blank">
-						<div class="course-info">
-							<h4>Generative AI with Large Language Models</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=how-diffusion-models-work" target="_blank">
-						<div class="course-info">
-							<h4>How Diffusion Models Work</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=introduction-to-on-device-ai" target="_blank">
-						<div class="course-info">
-							<h4>Introduction to On-Device AI</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=knowledge-graphs-for-rag" target="_blank">
-						<div class="course-info">
-							<h4>Knowledge Graphs for RAG</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=langchain-chat-with-your-data" target="_blank">
-						<div class="course-info">
-							<h4>LangChain: Chat with Your Data</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=langchain-for-llm-application-development" target="_blank">
-						<div class="course-info">
-							<h4>LangChain for LLM Application Development</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=large-language-models-semantic-search" target="_blank">
-						<div class="course-info">
-							<h4>Large Language Models with Semantic Search</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=llmops" target="_blank">
-						<div class="course-info">
-							<h4>LLMOps</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=open-source-models-hugging-face" target="_blank">
-						<div class="course-info">
-							<h4>Open Source Models with Hugging Face</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=preprocessing-unstructured-data-for-llm-applications" target="_blank">
-						<div class="course-info">
-							<h4>Preprocessing Unstructured Data for LLM Applications</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=prompt-engineering-for-vision-models" target="_blank">
-						<div class="course-info">
-							<h4>Prompt Engineering for Vision Models</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=quantization-fundamentals-with-hugging-face" target="_blank">
-						<div class="course-info">
-							<h4>Quantization Fundamentals with Hugging Face</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=quantization-in-depth" target="_blank">
-						<div class="course-info">
-							<h4>Quantization in Depth</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=reinforcement-learning-from-human-feedback" target="_blank">
-						<div class="course-info">
-							<h4>Reinforcement Learning from Human Feedback</h4>
-						</div>
-					</a>
-				</div>
-				<div class="course-cell">
-					<a href="course-details.html?course=understanding-applying-text-embeddings" target="_blank">
-						<div class="course-info">
-							<h4>Understanding and Applying Text Embeddings</h4>
-						</div>
-					</a>
-				</div>
-			</div>
+                <h2>To Start</h2>
+                <!-- Course cells will be dynamically added here -->
+            </div>
         </main>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to hide empty sections
-            const sections = document.querySelectorAll(".course-section");
-            sections.forEach(section => {
-                if (section.querySelectorAll(".course-cell").length === 0) {
-                    section.style.display = "none";
+        const courses = {
+            "chatgpt-prompt-engineering": {
+                title: "ChatGPT Prompt Engineering for Developers",
+                description: "The 'ChatGPT Prompt Engineering for Developers' course is designed to teach developers how to use large language models (LLMs) to quickly build powerful new applications.",
+                link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+                notes: "notes/ChatGPT_Prompt_Engineering_for_Developers.pdf",
+                completed: true,
+                tags: ["LLM", "ChatGPT", "Prompt Engineering"]
+            },
+            "ai-agents-langgraph": {
+                title: "AI Agents in LangGraph",
+                description: "The 'AI Agents in LangGraph' course focuses on developing and implementing AI agents using the LangGraph framework.",
+                link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
+                completed: false,
+                inProgress: true,
+                tags: ["AI", "LangGraph", "Agents"]
+            },
+            "azure-data-scientist-associate": {
+                title: "Azure Data Scientist Associate",
+                description: "The 'Azure Data Scientist Associate' certification course validates expertise in applying data science and machine learning to implement and manage machine learning workloads on Azure.",
+                link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification",
+                completed: false,
+                inProgress: true,
+                tags: ["Azure", "Data Science", "Machine Learning"]
+            },
+            "advanced-retrieval-for-ai": {
+                title: "Advanced Retrieval for AI with Chroma",
+                description: "The 'Advanced Retrieval for AI with Chroma' course teaches advanced techniques for information retrieval using the Chroma library.",
+                link: "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/",
+                completed: false,
+                tags: ["AI", "Information Retrieval", "Chroma"]
+            },
+            "automated-testing-llmops": {
+                title: "Automated Testing for LLMOps",
+                description: "The 'Automated Testing for LLMOps' course covers essential techniques and tools for implementing automated testing in large language model operations (LLMOps).",
+                link: "https://www.deeplearning.ai/short-courses/automated-testing-llmops/",
+                completed: false,
+                tags: ["LLM", "Testing", "DevOps"]
+            },
+            "build-llm-apps-with-langchain-js": {
+                title: "Build LLM Apps with LangChain.js",
+                description: "The 'Build LLM Apps with LangChain.js' course focuses on using the LangChain.js framework to develop applications powered by large language models.",
+                link: "https://www.deeplearning.ai/short-courses/build-llm-apps-with-langchain-js/",
+                completed: false,
+                tags: ["LLM", "LangChain", "JavaScript"]
+            },
+            "building-agentic-rag-with-llamaindex": {
+                title: "Building Agentic RAG with LlamaIndex",
+                description: "The 'Building Agentic RAG with LlamaIndex' course teaches students how to construct agentic retrieval-augmented generation (RAG) systems using the LlamaIndex framework.",
+                link: "https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/",
+                completed: false,
+                tags: ["RAG", "LlamaIndex", "AI"]
+            },
+            "building-evaluating-advanced-rag": {
+                title: "Building and Evaluating Advanced RAG Applications",
+                description: "The 'Building and Evaluating Advanced RAG Applications' course provides a comprehensive guide to constructing and assessing retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/",
+                completed: false,
+                tags: ["RAG", "AI", "Evaluation"]
+            },
+            "building-generative-ai-applications-with-gradio": {
+                title: "Building Generative AI Applications with Gradio",
+                description: "The 'Building Generative AI Applications with Gradio' course introduces the Gradio platform for creating interactive generative AI applications.",
+                link: "https://www.deeplearning.ai/short-courses/building-generative-ai-applications-with-gradio/",
+                completed: false,
+                tags: ["Generative AI", "Gradio", "Application Development"]
+            },
+            "building-multimodal-search-and-rag": {
+                title: "Building Multimodal Search and RAG",
+                description: "The 'Building Multimodal Search and RAG' course explores the construction of advanced multimodal search systems and retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-multimodal-search-and-rag/",
+                completed: false,
+                tags: ["Multimodal", "Search", "RAG"]
+            },
+            "building-systems-with-chatgpt": {
+                title: "Building Systems with the ChatGPT API",
+                description: "The 'Building Systems with the ChatGPT API' course teaches students how to leverage the ChatGPT API to develop sophisticated AI systems.",
+                link: "https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/",
+                completed: false,
+                tags: ["ChatGPT", "API", "System Development"]
+            },
+            "develop-nlp-solutions-with-azure-ai": {
+                title: "Develop Natural Language Processing Solutions with Azure AI Services",
+                description: "The 'Develop Natural Language Processing Solutions with Azure AI Services' course provides the skills needed to build natural language processing (NLP) solutions using Azure AI services.",
+                link: "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure-ai/",
+                completed: false,
+                tags: ["NLP", "Azure", "AI"]
+            },
+            "efficiently-serving-llms": {
+                title: "Efficiently Serving LLMs",
+                description: "The 'Efficiently Serving LLMs' course teaches students how to deploy and serve large language models (LLMs) efficiently.",
+                link: "https://www.deeplearning.ai/short-courses/efficiently-serving-llms/",
+                completed: false,
+                tags: ["LLM", "Deployment", "Efficiency"]
+            },
+            "finetuning-large-language-models": {
+                title: "Finetuning Large Language Models",
+                description: "The 'Finetuning Large Language Models' course covers advanced techniques for fine-tuning large language models to specific tasks and domains.",
+                link: "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/",
+                completed: false,
+                tags: ["LLM", "Fine-tuning", "Model Optimization"]
+            },
+            "function-calling-data-extraction-llms": {
+                title: "Function-Calling and Data Extraction with LLMs",
+                description: "The 'Function-Calling and Data Extraction with LLMs' course teaches how to use large language models (LLMs) for function calling and data extraction.",
+                link: "https://www.deeplearning.ai/short-courses/function-calling-and-data-extraction-with-llms/",
+                completed: false,
+                tags: ["LLM", "Function Calling", "Data Extraction"]
+            },
+            "functions-tools-agents-langchain": {
+                title: "Functions, Tools and Agents with LangChain",
+                description: "The 'Functions, Tools and Agents with LangChain' course focuses on leveraging the LangChain framework to develop sophisticated AI functionalities.",
+                link: "https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/",
+                completed: false,
+                tags: ["LangChain", "AI", "Agents"]
+            },
+            "generative-ai-with-llms": {
+                title: "Generative AI with Large Language Models",
+                description: "The 'Generative AI with Large Language Models' course provides a comprehensive guide to using large language models for generative AI tasks.",
+                link: "https://www.deeplearning.ai/courses/generative-ai-with-llms/",
+                completed: false,
+                tags: ["Generative AI", "LLM", "AI Applications"]
+            },
+            "how-diffusion-models-work": {
+                title: "How Diffusion Models Work",
+                description: "The 'How Diffusion Models Work' course provides an in-depth understanding of diffusion models, which are used in various AI applications for generating data.",
+                link: "https://www.deeplearning.ai/short-courses/how-diffusion-models-work/",
+                completed: false,
+                tags: ["Diffusion Models", "AI", "Data Generation"]
+            },
+            "introduction-to-on-device-ai": {
+                title: "Introduction to On-Device AI",
+                description: "The 'Introduction to On-Device AI' course introduces students to implementing AI models directly on devices such as smartphones and IoT devices.",
+                link: "https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/",
+                completed: false,
+                tags: ["On-Device AI", "IoT", "Mobile AI"]
+            },
+            "knowledge-graphs-for-rag": {
+                title: "Knowledge Graphs for RAG",
+                description: "The 'Knowledge Graphs for RAG' course explores the integration of knowledge graphs with retrieval-augmented generation (RAG) systems.",
+                link: "https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/",
+                completed: false,
+                tags: ["Knowledge Graphs", "RAG", "AI"]
+            },
+            "langchain-chat-with-your-data": {
+                title: "LangChain: Chat with Your Data",
+                description: "The 'LangChain: Chat with Your Data' course teaches students how to use the LangChain framework to create interactive chat applications that can interact with and process data.",
+                link: "https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/",
+                completed: false,
+                tags: ["LangChain", "Chatbots", "Data Processing"]
+            },
+            "langchain-for-llm-application-development": {
+                title: "LangChain for LLM Application Development",
+                description: "The 'LangChain for LLM Application Development' course focuses on using the LangChain framework to develop applications powered by large language models.",
+                link: "https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/",
+                completed: false,
+                tags: ["LangChain", "LLM", "Application Development"]
+            },
+            "large-language-models-semantic-search": {
+                title: "Large Language Models with Semantic Search",
+                description: "The 'Large Language Models with Semantic Search' course teaches students how to implement semantic search using large language models.",
+                link: "https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/",
+                completed: false,
+                tags: ["LLM", "Semantic Search", "Information Retrieval"]
+            },
+            "llmops": {
+                title: "LLMOps",
+                description: "The 'LLMOps' course introduces students to the operational aspects of managing large language models (LLMs).",
+                link: "https://www.deeplearning.ai/short-courses/llmops/",
+                completed: false,
+                tags: ["LLM", "DevOps", "AI Operations"]
+            },
+            "open-source-models-hugging-face": {
+                title: "Open Source Models with Hugging Face",
+                description: "The 'Open Source Models with Hugging Face' course provides an in-depth exploration of open-source models available on the Hugging Face platform.",
+                link: "https://www.deeplearning.ai/short-courses/open-source-models-hugging-face/",
+                completed: false,
+                tags: ["Open Source", "Hugging Face", "NLP"]
+            },
+            "preprocessing-unstructured-data-for-llm-applications": {
+                title: "Preprocessing Unstructured Data for LLM Applications",
+                description: "The 'Preprocessing Unstructured Data for LLM Applications' course covers the essential techniques for preparing unstructured data for large language model (LLM) applications.",
+                link: "https://www.deeplearning.ai/short-courses/preprocessing-unstructured-data-for-llm-applications/",
+                completed: false,
+                tags: ["Data Preprocessing", "LLM", "Unstructured Data"]
+            },
+			"prompt-engineering-for-vision-models": {
+                title: "Prompt Engineering for Vision Models",
+                description: "The 'Prompt Engineering for Vision Models' course teaches students how to design effective prompts for vision-based AI models.",
+                link: "https://www.deeplearning.ai/short-courses/prompt-engineering-for-vision-models/",
+                completed: false,
+                tags: ["Prompt Engineering", "Vision Models", "AI"]
+            },
+            "quantization-fundamentals-with-hugging-face": {
+                title: "Quantization Fundamentals with Hugging Face",
+                description: "The 'Quantization Fundamentals with Hugging Face' course introduces the basics of quantization and its application using the Hugging Face library.",
+                link: "https://www.deeplearning.ai/short-courses/quantization-fundamentals-with-hugging-face/",
+                completed: false,
+                tags: ["Quantization", "Hugging Face", "Model Optimization"]
+            },
+            "quantization-in-depth": {
+                title: "Quantization in Depth",
+                description: "The 'Quantization in Depth' course provides an in-depth understanding of quantization techniques used to optimize deep learning models.",
+                link: "https://www.deeplearning.ai/short-courses/quantization-in-depth/",
+                completed: false,
+                tags: ["Quantization", "Deep Learning", "Model Optimization"]
+            },
+            "reinforcement-learning-from-human-feedback": {
+                title: "Reinforcement Learning from Human Feedback",
+                description: "The 'Reinforcement Learning from Human Feedback' course covers techniques for training AI models using reinforcement learning guided by human feedback.",
+                link: "https://www.deeplearning.ai/short-courses/reinforcement-learning-from-human-feedback/",
+                completed: false,
+                tags: ["Reinforcement Learning", "Human Feedback", "AI Training"]
+            },
+            "understanding-applying-text-embeddings": {
+                title: "Understanding and Applying Text Embeddings",
+                description: "The 'Understanding and Applying Text Embeddings' course delves into the principles and practical applications of text embeddings.",
+                link: "https://www.deeplearning.ai/short-courses/google-cloud-vertex-ai/",
+                completed: false,
+                tags: ["Text Embeddings", "NLP", "AI Applications"]
+            }
+        };
+
+        const tagSet = new Set();
+        const activeTags = new Set();
+
+        function createCourseCell(key, course) {
+            const cell = document.createElement('div');
+            cell.className = 'course-cell';
+            cell.innerHTML = `
+                <a href="course-details.html?course=${key}" target="_blank">
+                    <div class="course-info">
+                        <h4>${course.title}</h4>
+                    </div>
+                </a>
+            `;
+            return cell;
+        }
+
+        function populateCourses() {
+            const sections = {
+                completed: document.getElementById('completed'),
+                inProgress: document.getElementById('in-progress'),
+                toStart: document.getElementById('to-start')
+            };
+
+            for (const [key, course] of Object.entries(courses)) {
+                const cell = createCourseCell(key, course);
+                if (course.completed) {
+                    sections.completed.appendChild(cell);
+                } else if (course.inProgress) {
+                    sections.inProgress.appendChild(cell);
+                } else {
+                    sections.toStart.appendChild(cell);
                 }
+
+                course.tags.forEach(tag => tagSet.add(tag));
+            }
+
+            populateTags();
+        }
+
+        function populateTags() {
+            const tagContainer = document.getElementById('tag-container');
+            tagSet.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag';
+                tagElement.textContent = tag;
+                tagElement.onclick = () => toggleTag(tag, tagElement);
+                tagContainer.appendChild(tagElement);
             });
+        }
+
+        function toggleTag(tag, element) {
+            if (activeTags.has(tag)) {
+                activeTags.delete(tag);
+                element.classList.remove('active');
+            } else {
+                activeTags.add(tag);
+                element.classList.add('active');
+            }
+            filterCourses();
+        }
+
+        function filterCourses() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            
+            for (const [key, course] of Object.entries(courses)) {
+                const cell = document.querySelector(`.course-cell a[href$="${key}"]`).parentNode;
+                const matchesSearch = course.title.toLowerCase().includes(searchTerm);
+                const matchesTags = activeTags.size === 0 || course.tags.some(tag => activeTags.has(tag));
+                
+                cell.style.display = matchesSearch && matchesTags ? 'block' : 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCourses();
+            document.getElementById('search-input').addEventListener('input', filterCourses);
         });
     </script>
 </body>
