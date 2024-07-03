@@ -308,82 +308,83 @@
         };
 
         const tagSet = new Set();
-        const activeTags = new Set();
+    const activeTags = new Set();
 
-        function createCourseCell(key, course) {
-            const cell = document.createElement('div');
-            cell.className = 'course-cell';
-            cell.innerHTML = `
-                <a href="course-details.html?course=${key}" target="_blank">
-                    <div class="course-info">
-                        <h4>${course.title}</h4>
-                    </div>
-                </a>
-            `;
-            return cell;
-        }
+    function createCourseCell(key, course) {
+        const cell = document.createElement('div');
+        cell.className = 'course-cell';
+        cell.innerHTML = `
+            <a href="course-details.html?course=${key}" target="_blank">
+                <div class="course-info">
+                    <h4>${course.title}</h4>
+                </div>
+            </a>
+        `;
+        return cell;
+    }
 
-        function populateCourses() {
-            const sections = {
-                completed: document.getElementById('completed'),
-                inProgress: document.getElementById('in-progress'),
-                toStart: document.getElementById('to-start')
-            };
+    function populateCourses() {
+        const sections = {
+            completed: document.getElementById('completed'),
+            inProgress: document.getElementById('in-progress'),
+            toStart: document.getElementById('to-start')
+        };
 
-            for (const [key, course] of Object.entries(courses)) {
-                const cell = createCourseCell(key, course);
-                if (course.completed) {
-                    sections.completed.appendChild(cell);
-                } else if (course.inProgress) {
-                    sections.inProgress.appendChild(cell);
-                } else {
-                    sections.toStart.appendChild(cell);
-                }
-
-                course.tags.forEach(tag => tagSet.add(tag));
-            }
-
-            populateTags();
-        }
-
-        function populateTags() {
-            const tagContainer = document.getElementById('tag-container');
-            tagSet.forEach(tag => {
-                const tagElement = document.createElement('span');
-                tagElement.className = 'tag';
-                tagElement.textContent = tag;
-                tagElement.onclick = () => toggleTag(tag, tagElement);
-                tagContainer.appendChild(tagElement);
-            });
-        }
-
-        function toggleTag(tag, element) {
-            if (activeTags.has(tag)) {
-                activeTags.delete(tag);
-                element.classList.remove('active');
+        for (const [key, course] of Object.entries(courses)) {
+            const cell = createCourseCell(key, course);
+            if (course.completed) {
+                sections.completed.appendChild(cell);
+            } else if (course.inProgress) {
+                sections.inProgress.appendChild(cell);
             } else {
-                activeTags.add(tag);
-                element.classList.add('active');
+                sections.toStart.appendChild(cell);
             }
-            filterCourses();
+
+            course.tags.forEach(tag => tagSet.add(tag));
         }
 
-        function filterCourses() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            
-            for (const [key, course] of Object.entries(courses)) {
-                const cell = document.querySelector(`.course-cell a[href$="${key}"]`).parentNode;
-                const matchesSearch = course.title.toLowerCase().includes(searchTerm);
-                const matchesTags = activeTags.size === 0 || course.tags.some(tag => activeTags.has(tag));
-                
-                cell.style.display = matchesSearch && matchesTags ? 'block' : 'none';
-            }
-        }
+        populateTags();
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            populateCourses();
-            document.getElementById('search-input').addEventListener('input', filterCourses);
+    function populateTags() {
+        const tagContainer = document.getElementById('tag-container');
+        const sortedTags = Array.from(tagSet).sort(); // Ordina i tag in ordine alfabetico
+        sortedTags.forEach(tag => {
+            const tagElement = document.createElement('span');
+            tagElement.className = 'tag';
+            tagElement.textContent = tag;
+            tagElement.onclick = () => toggleTag(tag, tagElement);
+            tagContainer.appendChild(tagElement);
         });
-    </script>
+    }
+
+    function toggleTag(tag, element) {
+        if (activeTags.has(tag)) {
+            activeTags.delete(tag);
+            element.classList.remove('active');
+        } else {
+            activeTags.add(tag);
+            element.classList.add('active');
+        }
+        filterCourses();
+    }
+
+    function filterCourses() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        
+        for (const [key, course] of Object.entries(courses)) {
+            const cell = document.querySelector(`.course-cell a[href$="${key}"]`).parentNode;
+            const matchesSearch = course.title.toLowerCase().includes(searchTerm);
+            const matchesTags = activeTags.size === 0 || course.tags.some(tag => activeTags.has(tag));
+            
+            cell.style.display = matchesSearch && matchesTags ? 'block' : 'none';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        populateCourses();
+        document.getElementById('search-input').addEventListener('input', filterCourses);
+    });
+</script>
 </body>
 </html>
