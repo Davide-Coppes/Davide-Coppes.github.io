@@ -46,6 +46,9 @@ header #branding {
 header #branding h1 {
     margin: 0;
 }
+header #branding .highlight {
+    color: #e8491d; /* Highlight color for 'Davide' */
+}
 header nav {
     float: right;
     margin-top: 10px;
@@ -119,4 +122,31 @@ main {
 }
 .tag.active {
     background-color: #333;
+}
+.project-cell {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+.project-cell .project-info {
+    margin: 0;
+}
+.project-cell h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+.project-cell:hover {
+    transform: scale(1.05);
+}
+.project-cell a {
+    text-decoration: none;
+    color: inherit;
 }
