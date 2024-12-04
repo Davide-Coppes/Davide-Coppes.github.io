@@ -65,7 +65,7 @@
             }
 
             document.getElementById('search-input').addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
+                const searchTerm = this.value.toLowerCase().trim();
                 filterProjects(searchTerm);
             });
         });
@@ -73,7 +73,12 @@
         function filterProjects(searchTerm) {
             for (const [key, project] of Object.entries(projects)) {
                 const cell = document.querySelector(`.project-cell a[href$="${key}"]`).parentNode;
-                const matchesSearch = project.title.toLowerCase().includes(searchTerm);
+                
+                // Verifica se il termine di ricerca è presente nel titolo o nella descrizione
+                const matchesSearch = project.title.toLowerCase().includes(searchTerm) || 
+                                      project.description.toLowerCase().includes(searchTerm);
+                
+                // Mostra o nasconde il progetto in base al risultato
                 cell.style.display = matchesSearch ? 'block' : 'none';
             }
         }
