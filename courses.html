@@ -16,25 +16,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        #tag-container {
-            margin-bottom: 20px;
-        }
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 5px;
-            background-color: #e8491d;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .tag:hover {
-            background-color: #d13d0f;
-        }
-        .tag.active {
-            background-color: #333;
-        }
     </style>
 </head>
 <body>
@@ -61,10 +42,6 @@
             <div id="search-container">
                 <input type="text" id="search-input" placeholder="Search courses...">
             </div>
-            
-            <div id="tag-container">
-                <!-- Tags will be dynamically added here -->
-            </div>
 
             <div id="completed" class="course-section">
                 <h2>Completed</h2>
@@ -90,110 +67,95 @@
                 description: "The 'AI Agents in LangGraph' course is a comprehensive guide to building intelligent agents using LangGraph. Participants will learn how to construct an agent from scratch using the ReAct (Reason + Act) pattern, implement various LangGraph components such as prompt templates and tools, and utilize advanced techniques like agentic search and persistence with streaming tokens. The course covers human-in-the-loop interactions for manual approvals, constructing a multi-agent architecture for collaborative task management, and developing an essay writer agent capable of planning, generating, and iterating on essay drafts. Additionally, it introduces different architectural frameworks, such as Supervisor and Plan and Execute architectures, to manage complex workflows. The course concludes with resources for further exploration in LangChain and LangGraph, ensuring participants are well-equipped to create sophisticated AI agents.",
                 link: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/",
 				certificate: "certifications/AI_Agents_in_LangGraph.pdf",
-                completed: true,
-                tags: ["Agent", "LangGraph", "LangChain", "Persistence", "Essay Writer", "Tools"]
+                completed: true
             },
             "chatgpt-prompt-engineering": {
                 title: "ChatGPT Prompt Engineering for Developers",
                 description: "The 'ChatGPT Prompt Engineering for Developers' course provides a comprehensive guide to effectively using instruction-tuned Large Language Models (LLMs) such as ChatGPT. Participants will learn about the different types of LLMs, the process of training instruction-tuned LLMs, and general guidelines for crafting effective prompts. The course covers essential techniques such as using delimiters, requesting structured outputs, and few-shot prompting. Additionally, it addresses the iterative process of refining prompts, summarizing and extracting information from text, performing sentiment analysis, and transforming input formats. The course also explores creating custom chatbots and automated replies, emphasizing practical applications and hands-on Python setup instructions.",
                 link: "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
 				certificate: "certifications/ChatGPT_Prompt_Engineering_for_Developers.pdf",
-                completed: true,
-                tags: ["LLM", "ChatGPT", "Prompt Engineering", "Text Inference", "Sentiment Analysis", "Chatbot"]
+                completed: true
             },
             "finetuning-large-language-models": {
                 title: "Finetuning Large Language Models",
                 description: "The 'Finetuning Large Language Models' course explores advanced techniques for customizing large language models (LLMs). It covers the following topics: an introduction to finetuning and comparison with prompt engineering; the benefits of finetuning over prompt engineering, including enhanced consistency and accuracy; the integration of finetuning into the training process, including pre-training and its limitations; instruction finetuning to improve a model's ability to follow instructions; data preparation guidelines for finetuning, including data collection, formatting, and tokenization; detailed steps in the training process, including configuration and optimization; challenges and methods for evaluating generative models, such as benchmarks and error analysis; and practical considerations for starting with finetuning, including model size relative to task complexity and parameter-efficient finetuning techniques like LoRa.",
                 link: "https://www.deeplearning.ai/short-courses/finetuning-large-language-models/",
 				certificate: "certifications/Finetuning_Large_Language_Models.pdf",
-                completed: true,
-                tags: ["Fine-Tuning", "Model Training", "Model Evaluation", "Data Preprocessing"]
+                completed: true
             },
             "preprocessing-unstructured-data-for-llm-applications": {
                 title: "Preprocessing Unstructured Data for LLM Applications",
                 description: "The 'Preprocessing Unstructured Data for LLM Applications' course teaches techniques for extracting and normalizing content from various document types like PDFs, PowerPoints, Word, HTML files, tables, and images. Participants will learn to enrich content with metadata, implement document image analysis techniques, and build a RAG bot to ingest different document types. The course is designed for those interested in enhancing LLM RAG systems' performance by efficiently processing diverse unstructured data sources.",
                 link: "https://www.deeplearning.ai/short-courses/preprocessing-unstructured-data-for-llm-applications/",
 				certificate: "certifications/Preprocessing_Unstructured_Data_for_LLM_Applications.pdf",
-                completed: true,
-                tags: ["Data Preprocessing", "Metadata", "Unstructured Data", "RAG", "Chroma"]
+                completed: true
             },
             "azure-data-scientist-associate": {
                 title: "Azure Data Scientist Associate",
                 description: "The 'Azure Data Scientist Associate' certification validates expertise in applying data science and machine learning to manage data ingestion, preparation, model training, deployment, and solution monitoring using Python, Azure Machine Learning, and MLflow. Candidates will learn to design ML solutions, explore data, train models, and implement scalable deployments. The certification involves skills in designing ML solutions, data exploration, model training and deployment, and managing ML solutions.",
                 link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/?practice-assessment-type=certification",
                 completed: false,
-                inProgress: true,
-                tags: ["Azure", "Data Ingestion", "Model Deployment", "MLflow"]
+                inProgress: true
             },
             "advanced-retrieval-for-ai": {
                 title: "Advanced Retrieval for AI with Chroma",
                 description: "The 'Advanced Retrieval for AI with Chroma' course teaches how to enhance the relevancy of information retrieval using advanced techniques like query expansion, cross-encoder reranking, and training embedding adapters. Aimed at those with intermediate Python skills, the course focuses on improving queries, utilizing large language models (LLMs) for better results, and fine-tuning embeddings with user feedback. The course is free for a limited time during the DeepLearning.AI platform beta.",
                 link: "https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/",
-                completed: false,
-                tags: ["RAG", "Information Retrieval", "Query Expansion", "Cross-encoder Reranking", "Embedding Adapters", "Chroma"]
+                completed: false
             },
             "automated-testing-llmops": {
                 title: "Automated Testing for LLMOps",
                 description: "The 'Automated Testing for LLMOps' course focuses on implementing continuous integration (CI) workflows to evaluate large language model (LLM) applications. Participants will learn to write robust LLM evaluations, build CI workflows to automatically test application changes, and orchestrate evaluations at different development stages. The course covers handling common issues like hallucinations, data drift, and harmful outputs using tools from CircleCI.",
                 link: "https://www.deeplearning.ai/short-courses/automated-testing-llmops/",
-                completed: false,
-                tags: ["Automated Testing", "Continuous Integration", "Model-Graded Evaluations", "Rules-Based Testing"]
+                completed: false
             },
             "build-llm-apps-with-langchain-js": {
                 title: "Build LLM Apps with LangChain.js",
                 description: "The 'Build LLM Apps with LangChain.js' course teaches web developers to create powerful, context-aware applications using LangChain’s JavaScript library. Participants will learn the basics of data loading and preparation, techniques for data retrieval and presentation for conversational systems, and the fundamentals of retrieval augmented generation (RAG). This course is ideal for those with intermediate JavaScript knowledge aiming to build machine learning applications, particularly chatbots.",
                 link: "https://www.deeplearning.ai/short-courses/build-llm-apps-with-langchain-js/",
-                completed: false,
-                tags: ["LangChain", "RAG", "Context-Aware Applications", "Chatbot"]
+                completed: false
             },
             "building-agentic-rag-with-llamaindex": {
                 title: "Building Agentic RAG with LlamaIndex",
                 description: "The 'Building Agentic RAG with LlamaIndex' course teaches participants to develop autonomous research agents using agentic Retrieval-Augmented Generation (RAG). Students will learn to build router agents for Q&A and summarization, design multi-document agents, and implement advanced debugging techniques. The course covers creating agents that can reason, handle multi-step tool calls, and process complex queries across various documents, enhancing data retrieval and analysis capabilities.",
                 link: "https://www.deeplearning.ai/short-courses/building-agentic-rag-with-llamaindex/",
-                completed: false,
-                tags: ["RAG", "LlamaIndex", "Agent","Multi-document Handling"]
+                completed: false
             },
             "building-evaluating-advanced-rag": {
                 title: "Building and Evaluating Advanced RAG Applications",
                 description: "The 'Building and Evaluating Advanced RAG Applications' course teaches advanced retrieval methods like sentence-window and auto-merging retrieval to enhance Retrieval Augmented Generation (RAG) pipelines. Participants will learn evaluation best practices to improve system performance iteratively, focusing on the RAG triad: Context Relevance, Groundedness, and Answer Relevance. The course is designed for those with basic Python knowledge looking to implement advanced RAG techniques effectively.",
                 link: "https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/",
-                completed: false,
-                tags: ["RAG", "Context Relevance", "Evaluation"]
+                completed: false
             },
             "building-generative-ai-applications-with-gradio": {
                 title: "Building Generative AI Applications with Gradio",
                 description: "The 'Building Generative AI Applications with Gradio' course teaches how to quickly create and demo machine learning applications using Gradio. Participants will build apps for image generation, image captioning, and text summarization, and learn to share these apps on Hugging Face Spaces. The course is ideal for those with basic Python knowledge looking to create interactive AI applications.",
                 link: "https://www.deeplearning.ai/short-courses/building-generative-ai-applications-with-gradio/",
-                completed: false,
-                tags: ["Gradio", "Image Generation", "Text Summarization", "Hugging Face", "AI Application"]
+                completed: false
             },
             "building-multimodal-search-and-rag": {
                 title: "Building Multimodal Search and RAG",
                 description: "The 'Building Multimodal Search and RAG' course teaches how to create multimodal retrieval-augmented generation (RAG) systems that integrate various data types like text, images, audio, and video. Participants will learn to implement contrastive learning for training multimodal models, build any-to-any retrieval systems, and develop multi-vector recommender systems. The course covers industry applications and end-to-end multimodal RAG system implementation.",
                 link: "https://www.deeplearning.ai/short-courses/building-multimodal-search-and-rag/",
-                completed: false,
-                tags: ["Multimodal Search", "RAG", "Contrastive Learning"]
+                completed: false
             },
             "building-systems-with-chatgpt": {
                 title: "Building Systems with the ChatGPT API",
                 description: "The 'Building Systems with the ChatGPT API' teaches how to automate complex workflows using chain calls to large language models (LLMs). Participants will learn to build multi-step systems, split tasks into subtasks using multistage prompts, and evaluate LLM inputs and outputs for safety, accuracy, and relevance. The course includes creating a customer service chatbot and implementing chain-of-thought reasoning. It is beginner-friendly and ideal for those with basic Python knowledge.",
                 link: "https://www.deeplearning.ai/short-courses/building-systems-with-chatgpt/",
-                completed: false,
-                tags: ["ChatGPT", "Workflow Automation", "AI Application", "Chatbot"]
+                completed: false
             },
             "develop-nlp-solutions-with-azure-ai": {
                 title: "Develop Natural Language Processing Solutions with Azure AI Services",
                 description: "The 'Develop Natural Language Processing Solutions with Azure AI Services' course covers building NLP solutions using Azure's AI services. Participants will learn to analyze text, create question-answering systems, build conversational models, develop custom text classification and named entity recognition, translate text and speech, and create speech-enabled applications. Prerequisites include familiarity with Azure, the Azure portal, and programming in C# or Python.",
                 link: "https://learn.microsoft.com/en-us/training/paths/develop-language-solutions-azure-ai/",
-                completed: false,
-                tags: ["NLP", "Azure", "Text Analysis"]
+                completed: false
             },
             "efficiently-serving-llms": {
                 title: "Efficiently Serving LLMs",
                 description: "The 'Efficiently Serving LLMs' course teaches how to optimize the performance and scalability of large language models (LLMs). Participants will learn to implement key techniques such as KV caching, continuous batching, model quantization, and use of Low Rank Adapters (LoRA). The course includes hands-on experience with Predibase's LoRAX framework to serve multiple fine-tuned models efficiently, balancing inference throughput and latency.",
                 link: "https://www.deeplearning.ai/short-courses/efficiently-serving-llms/",
-                completed: false,
-                tags: ["KV Caching", "Continuous Batching", "Model Quantization", "Efficiency"]
+                completed: false
             },
             "function-calling-data-extraction-llms": {
                 title: "Function-Calling and Data Extraction with LLMs",
@@ -206,194 +168,149 @@
                 title: "Functions, Tools and Agents with LangChain",
                 description: "The 'Functions, Tools and Agents with LangChain' course focuses on the latest advancements in LLM APIs, including ChatGPT’s function calling capability and the LangChain Expression Language (LCEL). Participants will learn to generate structured output, use LCEL for customizing chains and agents, apply function calling for tasks like tagging and data extraction, and understand tool selection and routing. The course is ideal for those with basic Python knowledge and experience with LLM prompts.",
                 link: "https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/",
-                completed: false,
-                tags: ["Agent", "Tools", "LangChain", "Function Calling"]
+                completed: false
             },
             "generative-ai-with-llms": {
                 title: "Generative AI with Large Language Models",
                 description: "The 'Generative AI with Large Language Models' course provides a comprehensive understanding of generative AI, from data gathering to deployment. Participants will learn the transformer architecture, fine-tuning techniques, and empirical scaling laws for optimization. The course includes practical applications, industry insights, and a certificate upon completion. It is ideal for data scientists, machine learning engineers, prompt engineers, and anyone interested in generative AI.",
                 link: "https://www.deeplearning.ai/courses/generative-ai-with-llms/",
-                completed: false,
-                tags: ["Transformers", "Fine-Tuning", "AWS"]
+                completed: false
             },
             "how-diffusion-models-work": {
                 title: "How Diffusion Models Work",
                 description: "The 'How Diffusion Models Work' course provides a deep understanding of the diffusion process and how to build and train diffusion models from scratch. Participants will learn to implement algorithms for faster sampling, create neural networks for noise prediction, and add context for personalized image generation. This intermediate-level course, ideal for those with Python and TensorFlow or PyTorch experience, includes hands-on labs and coding exercises to reinforce learning.",
                 link: "https://www.deeplearning.ai/short-courses/how-diffusion-models-work/",
-                completed: false,
-                tags: ["Diffusion Models", "Sampling Algorithms", "Noise Prediction"]
+                completed: false
             },
             "introduction-to-on-device-ai": {
                 title: "Introduction to On-Device AI",
                 description: "The 'Introduction to On-Device AI' course teaches how to deploy AI models on edge devices like smartphones. Participants will learn model conversion for device compatibility, quantization for performance gains, and device integration. The course covers deploying a real-time image segmentation model and validating its performance on-device. It is designed for beginners with knowledge of Python and frameworks like PyTorch or TensorFlow.",
                 link: "https://www.deeplearning.ai/short-courses/introduction-to-on-device-ai/",
-                completed: false,
-                tags: ["On-Device AI", "IoT", "Quantization"]
+                completed: false
             },
             "knowledge-graphs-for-rag": {
                 title: "Knowledge Graphs for RAG",
                 description: "The 'Knowledge Graphs for RAG' course teaches how to use Neo4j’s Cypher language to manage data in knowledge graphs, improving LLMs' contextual relevance in Retrieval Augmented Generation (RAG). Participants will build a question-answering system with Neo4j and LangChain, integrating structured and unstructured data for more insightful AI applications. The course covers creating and querying knowledge graphs, advanced data retrieval techniques, and enhancing LLM prompts with structured context.",
                 link: "https://www.deeplearning.ai/short-courses/knowledge-graphs-rag/",
-                completed: false,
-                tags: ["Knowledge Graphs", "RAG", "Neo4j", "LangChain"]
+                completed: false
             },
             "langchain-chat-with-your-data": {
                 title: "LangChain: Chat with Your Data",
                 description: "The 'LangChain: Chat with Your Data' course teaches how to use LangChain to build chatbots that interact with your documents and data. Participants will learn document loading, splitting, vector stores, embeddings, advanced retrieval techniques, and question answering. Ideal for developers familiar with Python and interested in LLMs like ChatGPT, this course enables the creation of practical applications for data interaction.",
                 link: "https://www.deeplearning.ai/short-courses/langchain-chat-with-your-data/",
-                completed: false,
-                tags: ["LangChain", "Chatbot", "Data Interaction"]
+                completed: false
             },
             "langchain-for-llm-application-development": {
                 title: "LangChain for LLM Application Development",
                 description: "The 'LangChain for LLM Application Development' course provides essential skills for using LangChain to develop language model applications. Participants will learn to call LLMs, use prompts and parsers, implement memory for conversations, create operation sequences, perform question answering over documents, and develop LLM reasoning agents. The course, taught by LangChain creator Harrison Chase and Andrew Ng, is beginner-friendly and ideal for those with basic Python knowledge.",
                 link: "https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/",
-                completed: false,
-                tags: ["LangChain", "AI Application", "Agent"]
+                completed: false
             },
             "large-language-models-semantic-search": {
                 title: "Large Language Models with Semantic Search",
                 description: "The 'Large Language Models with Semantic Search' course teaches how to enhance traditional keyword search using LLMs. Participants will learn to implement dense retrieval and reranking methods with embeddings to improve search relevance and accuracy. The course covers the basics of keyword search, advanced techniques for semantic search, and practical implementation in projects. Ideal for those with basic Python knowledge, the course offers hands-on experience with large data sets.",
                 link: "https://www.deeplearning.ai/short-courses/large-language-models-semantic-search/",
-                completed: false,
-                tags: ["Semantic Search", "Dense Retrieval", "Reranking"]
+                completed: false
             },
-            "llmops": {
+            "llm-ops": {
                 title: "LLMOps",
                 description: "The 'LLMOps' course guides learners through the LLMOps pipeline for pre-processing training data, supervised instruction tuning, and deploying custom LLMs. Participants will learn to retrieve and transform data, version datasets and models, configure and execute tuning pipelines, and monitor safety scores to ensure responsible AI usage. The course utilizes tools like BigQuery, Kubeflow Pipelines, and Google Cloud, making it ideal for those looking to build and manage LLM workflows.",
                 link: "https://www.deeplearning.ai/short-courses/llmops/",
-                completed: false,
-                tags: ["LLMOps", "Fine-Tuning", "Model Deployment"]
+                completed: false
             },
             "open-source-models-hugging-face": {
                 title: "Open Source Models with Hugging Face",
                 description: "The 'Open Source Models with Hugging Face' course teaches how to find and use open-source models from the Hugging Face Hub for various tasks including NLP, audio, image, and multimodal tasks. Participants will learn to implement these models using the transformers library and create user-friendly AI applications with Gradio and Hugging Face Spaces. This course is ideal for beginners wanting to build AI applications quickly and easily.",
                 link: "https://www.deeplearning.ai/short-courses/open-source-models-hugging-face/",
-                completed: false,
-                tags: ["Open Source Models", "Hugging Face", "NLP", "Transformers"]
+                completed: false
             },
 			"prompt-compression-query-optimization": {
 				title: "Prompt Compression and Query Optimization",
 				description: "The 'Prompt Compression and Query Optimization' course focuses on enhancing the efficiency and cost-effectiveness of large-scale Retrieval Augmented Generation (RAG) applications. Key techniques covered include prefiltering, postfiltering, projection, reranking, and prompt compression. The course involves hands-on exercises using MongoDB to implement vector search, develop multi-stage aggregation pipelines, refine search results, and optimize database outputs. This intermediate-level course is suitable for those familiar with Python and basic database concepts.",
 				link: "https://www.deeplearning.ai/short-courses/prompt-compression-and-query-optimization/",
-				completed: false,
-				tags: ["Prompt Compression", "Query Optimization", "RAG"]
+				completed: false
 			},
 			"prompt-engineering-for-vision-models": {
                 title: "Prompt Engineering for Vision Models",
                 description: "The 'Prompt Engineering for Vision Models' course covers how to prompt vision models using text, coordinates, and bounding boxes. Participants will learn in-painting techniques, fine-tune diffusion models with DreamBooth, and utilize models like Meta’s SAM, OWL-ViT, and Stable Diffusion 2.0. The course includes practical exercises in image generation, segmentation, object detection, and personalization. Ideal for those with Python experience, the course uses Comet for experiment tracking and optimization.",
                 link: "https://www.deeplearning.ai/short-courses/prompt-engineering-for-vision-models/",
-                completed: false,
-                tags: ["Prompt Engineering", "Vision Models", "Image Generation", "Object Detection"]
+                completed: false
             },
             "quantization-fundamentals-with-hugging-face": {
                 title: "Quantization Fundamentals with Hugging Face",
                 description: "The 'Quantization Fundamentals with Hugging Face' course teaches how to compress models using linear quantization and downcasting techniques with the Quanto and Transformers libraries. Participants will learn to apply these methods to make generative AI models more efficient, faster, and accessible on a variety of devices. Ideal for learners with basic machine learning knowledge and some experience with PyTorch, the course offers practical skills to optimize model performance.",
                 link: "https://www.deeplearning.ai/short-courses/quantization-fundamentals-with-hugging-face/",
-                completed: false,
-                tags: ["Quantization", "Hugging Face", "Model Compression"]
+                completed: false
             },
             "quantization-in-depth": {
                 title: "Quantization in Depth",
                 description: "The 'Quantization in Depth' course provides advanced training on model quantization methods to reduce model sizes while maintaining performance. Participants will implement and customize linear quantization, including symmetric and asymmetric modes, and various granularities. They will build a general-purpose quantizer in PyTorch to compress model weights from 32 bits to 8 bits and even 2 bits. This course is ideal for those with prior knowledge of quantization fundamentals and experience with PyTorch.",
                 link: "https://www.deeplearning.ai/short-courses/quantization-in-depth/",
-                completed: false,
-                tags: ["Quantization", "Model Compression"]
+                completed: false
             },
             "reinforcement-learning-from-human-feedback": {
                 title: "Reinforcement Learning from Human Feedback",
                 description: "The 'Reinforcement Learning from Human Feedback' course covers aligning LLMs with human values using RLHF. Participants will learn about the 'preference' and 'prompt' datasets, use the Google Cloud Pipeline Components Library to fine-tune the Llama 2 model, and evaluate the tuned model against the base model. This course is ideal for those with intermediate Python knowledge interested in applying RLHF techniques.",
                 link: "https://www.deeplearning.ai/short-courses/reinforcement-learning-from-human-feedback/",
-                completed: false,
-                tags: ["Reinforcement Learning", "Human Feedback", "Fine-Tuning"]
+                completed: false
             },
             "understanding-applying-text-embeddings": {
                 title: "Understanding and Applying Text Embeddings",
                 description: "The 'Understanding and Applying Text Embeddings' course teaches using text embeddings to enhance various NLP tasks like clustering, classification, and semantic search. Participants will build a question-answering system with Vertex AI, learn to measure semantic similarity, and apply embeddings for efficient search using the ScaNN library. Ideal for those with basic Python knowledge, the course covers embedding properties, text generation adjustments, and practical implementation.",
                 link: "https://www.deeplearning.ai/short-courses/google-cloud-vertex-ai/",
-                completed: false,
-                tags: ["Text Embeddings", "Semantic Search", "Clustering"]
+                completed: false
             }
         };
 
-        const tagSet = new Set();
-    const activeTags = new Set();
-
-    function createCourseCell(key, course) {
-        const cell = document.createElement('div');
-        cell.className = 'course-cell';
-        cell.innerHTML = `
-            <a href="course-details.html?course=${key}" target="_blank">
-                <div class="course-info">
-                    <h4>${course.title}</h4>
-                </div>
-            </a>
-        `;
-        return cell;
-    }
-
-    function populateCourses() {
-        const sections = {
-            completed: document.getElementById('completed'),
-            inProgress: document.getElementById('in-progress'),
-            toStart: document.getElementById('to-start')
-        };
-
-        for (const [key, course] of Object.entries(courses)) {
-            const cell = createCourseCell(key, course);
-            if (course.completed) {
-                sections.completed.appendChild(cell);
-            } else if (course.inProgress) {
-                sections.inProgress.appendChild(cell);
-            } else {
-                sections.toStart.appendChild(cell);
-            }
-
-            course.tags.forEach(tag => tagSet.add(tag));
+        function createCourseCell(key, course) {
+            const cell = document.createElement('div');
+            cell.className = 'course-cell';
+            cell.innerHTML = `
+                <a href="course-details.html?course=${key}" target="_blank">
+                    <div class="course-info">
+                        <h4>${course.title}</h4>
+                    </div>
+                </a>
+            `;
+            return cell;
         }
 
-        populateTags();
-    }
+        function populateCourses() {
+            const sections = {
+                completed: document.getElementById('completed'),
+                inProgress: document.getElementById('in-progress'),
+                toStart: document.getElementById('to-start')
+            };
 
-    function populateTags() {
-        const tagContainer = document.getElementById('tag-container');
-        const sortedTags = Array.from(tagSet).sort(); // Ordina i tag in ordine alfabetico
-        sortedTags.forEach(tag => {
-            const tagElement = document.createElement('span');
-            tagElement.className = 'tag';
-            tagElement.textContent = tag;
-            tagElement.onclick = () => toggleTag(tag, tagElement);
-            tagContainer.appendChild(tagElement);
+            for (const [key, course] of Object.entries(courses)) {
+                const cell = createCourseCell(key, course);
+                if (course.completed) {
+                    sections.completed.appendChild(cell);
+                } else if (course.inProgress) {
+                    sections.inProgress.appendChild(cell);
+                } else {
+                    sections.toStart.appendChild(cell);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCourses();
+            document.getElementById('search-input').addEventListener('input', function() {
+				const searchTerm = this.value.toLowerCase().trim();
+
+				for (const [key, course] of Object.entries(courses)) {
+					const cell = document.querySelector(`.course-cell a[href$="${key}"]`).parentNode;
+					
+					// Cerca sia nel titolo che nella descrizione (puoi modificare se necessario)
+					const matchesSearch = course.title.toLowerCase().includes(searchTerm) || 
+										  course.description.toLowerCase().includes(searchTerm);
+
+					// Mostra o nasconde il corso
+					cell.style.display = matchesSearch ? 'block' : 'none';
+				}
+			});
         });
-    }
-
-    function toggleTag(tag, element) {
-        if (activeTags.has(tag)) {
-            activeTags.delete(tag);
-            element.classList.remove('active');
-        } else {
-            activeTags.add(tag);
-            element.classList.add('active');
-        }
-        filterCourses();
-    }
-
-    function filterCourses() {
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
-        
-        for (const [key, course] of Object.entries(courses)) {
-            const cell = document.querySelector(`.course-cell a[href$="${key}"]`).parentNode;
-            const matchesSearch = course.title.toLowerCase().includes(searchTerm);
-            const matchesTags = activeTags.size === 0 || course.tags.some(tag => activeTags.has(tag));
-            
-            cell.style.display = matchesSearch && matchesTags ? 'block' : 'none';
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        populateCourses();
-        document.getElementById('search-input').addEventListener('input', filterCourses);
-    });
-</script>
+    </script>
 </body>
 </html>
