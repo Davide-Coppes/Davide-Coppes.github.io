@@ -244,21 +244,34 @@
             const course = courses[courseKey];
 
             if (course) {
-                const courseDetails = document.getElementById('course-details');
-                courseDetails.innerHTML = `
-                    <h1>${course.title}</h1>
-                    <p>${course.description}</p>
-                    <p><strong>Status:</strong> ${course.completed ? 'Completed' : 'In Progress'}</p>
-                    <a href="${course.link}" target="_blank">Go to Course</a>
-                `;
+				const courseDetails = document.getElementById('course-details');
 
-                if (course.completed && course.certificate) {
-                    document.getElementById('certificate-section').style.display = 'block';
-                    document.getElementById('certificate-link').href = course.certificate;
-                }
-            } else {
-                document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
-            }
+				// Determina lo stato del corso
+				let status;
+				if (course.completed) {
+					status = 'Completed';
+				} else if (course.inProgress) {
+					status = 'In Progress';
+				} else {
+					status = 'To Start';
+				}
+
+				// Genera il contenuto dei dettagli del corso
+				courseDetails.innerHTML = `
+					<h1>${course.title}</h1>
+					<p>${course.description}</p>
+					<p><strong>Status:</strong> ${status}</p>
+					<a href="${course.link}" target="_blank">Go to Course</a>
+				`;
+
+				// Mostra il certificato solo se il corso è completato
+				if (course.completed && course.certificate) {
+					document.getElementById('certificate-section').style.display = 'block';
+					document.getElementById('certificate-link').href = course.certificate;
+				}
+			} else {
+				document.getElementById('course-details').innerHTML = '<p>Course not found.</p>';
+			}
         });
     </script>
 </body>
