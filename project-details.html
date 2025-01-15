@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Project Details</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Davide</span> Coppes</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li class="current"><a href="projects.html">Projects</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <main>
+            <a href="projects.html" style="display: inline-block; margin-bottom: 20px;">
+                &larr; Back to Projects
+            </a>
+
+            <!-- Contenitore in cui verranno caricati i dettagli del progetto -->
             <div id="project-details"></div>
         </main>
     </div>
