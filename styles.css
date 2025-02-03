@@ -150,3 +150,60 @@ main {
     text-decoration: none;
     color: inherit;
 }
+
+/* Sezione Fun Demos */
+#fun-demos {
+  margin-top: 40px; /* Spazio dal resto della pagina */
+}
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap; /* Permette di andare a capo in caso di schermi piccoli */
+  gap: 20px;       /* Spazio orizzontale/verticale fra i riquadri */
+}
+
+.demo-cell {
+  flex: 1 1 calc(33.333% - 20px); /* 3 per riga */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-decoration: none;
+  transition: transform 0.2s;
+  min-width: 250px; /* Opzionale, per non restringere troppo sui dispositivi stretti */
+}
+
+.demo-cell h3 {
+  margin-top: 0;
+}
+
+.demo-cell:hover {
+  transform: scale(1.02);
+}
+
+.demo-cell form {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-cell form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.demo-cell form button {
+  padding: 10px;
+  background-color: #e8491d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.demo-cell form button:hover {
+  background-color: #333;
+}

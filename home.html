@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,25 @@
     
     <!-- Favicon (opzione PNG) -->
     <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        /* Stile per la clessidra */
+        .loading-spinner {
+            display: none; /* Nascosto di default */
+            margin: 10px auto;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,7 +51,95 @@
         <main>
             <h1>Welcome to My Personal Website</h1>
             <p>Hello, I'm Davide Coppes. This is my personal website where you can learn more about me, my projects, and the courses I've taken. Feel free to explore!</p>
+            
+            <!-- Sezione Fun Demos -->
+            <section id="fun-demos">
+                <h2>Fun Demos</h2>
+                <div class="demo-row">
+                    <!-- DEMO 1: Generatore di frasi motivazionali assurde -->
+                    <div class="demo-cell">
+                        <h3>Nonsense Motivational Quote Generator</h3>
+                        <p>Enter two english words to generate an absurd motivational sentence!</p>
+                        
+                        <form id="quote-form">
+                            <input 
+                                type="text" 
+                                id="word1" 
+                                name="word1" 
+                                placeholder="e.g., cucumber" 
+                                required 
+                            />
+                            <input 
+                                type="text" 
+                                id="word2" 
+                                name="word2" 
+                                placeholder="e.g., awareness" 
+                                required 
+                            />
+                            <button type="submit">Generate Quote</button>
+                        </form>
+
+                        <!-- Clessidra di caricamento -->
+                        <div class="loading-spinner" id="loading-spinner"></div>
+
+                        <!-- Qui mostriamo il risultato -->
+                        <div id="quote-result" style="margin-top: 10px; font-weight: bold;"></div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+
+    <script>
+        document.getElementById("quote-form").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Previene il refresh della pagina
+
+            // Ottieni i valori degli input
+            let word1 = document.getElementById("word1").value.trim();
+            let word2 = document.getElementById("word2").value.trim();
+
+            // Verifica che i campi non siano vuoti
+            if (!word1 || !word2) {
+                alert("Please enter both words.");
+                return;
+            }
+
+            // Mostra la clessidra di caricamento
+            document.getElementById("loading-spinner").style.display = "block";
+            document.getElementById("quote-result").innerText = ""; // Pulisce il vecchio risultato
+
+            // URL dell'API su Hugging Face Spaces (sostituisci con il tuo spazio)
+            const API_URL = "https://Davi-Co-demo-quote-generator.hf.space/generate_quote";
+
+            try {
+                // Effettua la richiesta API con il metodo POST
+                let response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ word1: word1, word2: word2 }) // Dati inviati al server
+                });
+
+                // Controlla se la risposta è OK
+                if (!response.ok) {
+                    throw new Error("API request failed.");
+                }
+
+                // Converte la risposta in JSON
+                let data = await response.json();
+
+                // Nasconde la clessidra dopo aver ricevuto la risposta
+                document.getElementById("loading-spinner").style.display = "none";
+
+                // Mostra il risultato nella pagina
+                document.getElementById("quote-result").innerText = data.quote || "Error generating quote.";
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("loading-spinner").style.display = "none"; // Nasconde la clessidra
+                document.getElementById("quote-result").innerText = "Failed to fetch quote.";
+            }
+        });
+    </script>
 </body>
 </html>
